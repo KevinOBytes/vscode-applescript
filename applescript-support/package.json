@@ -1,0 +1,60 @@
+{
+  "name": "applescript-support",
+  "displayName": "AppleScript Support",
+  "description": "Rich AppleScript language support for Visual Studio Code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "applescript",
+      "aliases": ["AppleScript", "applescript"],
+      "extensions": [".scpt", ".applescript", ".scptd"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/applescript_icon.png",
+        "dark": "./icons/applescript_icon_dark.png"
+      }
+    }],
+    "grammars": [{
+      "language": "applescript",
+      "scopeName": "source.applescript",
+      "path": "./syntaxes/applescript.tmLanguage.json"
+    }]
+  },
+  "publisher": "TKOResearch",
+  "author": {
+    "name": "Kevin O'Connor",
+    "email": "kevin@tkoresearch.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KevinOBytes/vscode-applescript"
+  },
+  "bugs": {
+    "url": "https://github.com/KevinOBytes/vscode-applescript/issues"
+  },
+  "homepage": "https://github.com/KevinOBytes/vscode-applescript#readme",
+  "keywords": [
+    "applescript",
+    "macos",
+    "automation",
+    "script",
+    "apple"
+  ],
+  "galleryBanner": {
+    "color": "#C5C5C5",
+    "theme": "light"
+  },
+  "icon": "images/icon.png",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "echo Compilation complete",
+    "watch": "echo Watching...",
+    "test": "echo No tests yet"
+  }
+}
