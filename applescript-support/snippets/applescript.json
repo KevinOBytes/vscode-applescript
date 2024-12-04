@@ -1,0 +1,88 @@
+{
+    "Tell Application Block": {
+        "prefix": "tell",
+        "body": [
+            "tell application \"${1:Application}\"",
+            "\t$0",
+            "end tell"
+        ],
+        "description": "Create a tell application block"
+    },
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "if ${1:condition} then",
+            "\t$0",
+            "end if"
+        ],
+        "description": "Create an if statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "if ${1:condition} then",
+            "\t$2",
+            "else",
+            "\t$0",
+            "end if"
+        ],
+        "description": "Create an if-else statement"
+    },
+    "Repeat Loop": {
+        "prefix": "repeat",
+        "body": [
+            "repeat ${1|with,until,while,times|}${2: condition}",
+            "\t$0",
+            "end repeat"
+        ],
+        "description": "Create a repeat loop"
+    },
+    "Try-Error Block": {
+        "prefix": "try",
+        "body": [
+            "try",
+            "\t$1",
+            "on error ${2:errorMessage}",
+            "\t$0",
+            "end try"
+        ],
+        "description": "Create a try-error block"
+    },
+    "Display Dialog": {
+        "prefix": "dialog",
+        "body": [
+            "display dialog \"${1:message}\" ${2:buttons {\"${3:OK}\"}} ${4:default button ${5:1}}"
+        ],
+        "description": "Create a display dialog"
+    },
+    "Choose File": {
+        "prefix": "choosefile",
+        "body": [
+            "set ${1:selectedFile} to choose file with prompt \"${2:Please select a file}\" ${3:default location (path to desktop)}"
+        ],
+        "description": "Create a choose file dialog"
+    },
+    "Do Shell Script": {
+        "prefix": "shell",
+        "body": [
+            "do shell script \"${1:command}\""
+        ],
+        "description": "Create a shell script command"
+    },
+    "Handler (Function)": {
+        "prefix": "on",
+        "body": [
+            "on ${1:handlerName}(${2:parameters})",
+            "\t$0",
+            "end ${1:handlerName}"
+        ],
+        "description": "Create a handler (function)"
+    },
+    "Set Variable": {
+        "prefix": "set",
+        "body": [
+            "set ${1:variableName} to ${2:value}"
+        ],
+        "description": "Set a variable"
+    }
+} 

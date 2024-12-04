@@ -1,0 +1,5 @@
+-- Test file for snippets
+-- Try typing these triggers:
+-- tell<Tab>
+-- if<Tab>
+-- repeat<Tab> 

@@ -1,0 +1,110 @@
+{
+	"name": "AppleScript",
+	"scopeName": "source.applescript",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"match": "--.*$",
+					"name": "comment.line.double-dash.applescript"
+				},
+				{
+					"begin": "\\(\\*",
+					"end": "\\*\\)",
+					"name": "comment.block.applescript"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"end": "\"",
+					"name": "string.quoted.double.applescript",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.applescript"
+						}
+					]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"match": "\\b(tell|end tell|if|then|else|end if|repeat|with|while|until|end repeat|try|error|end try|return|continue|exit|considering|ignoring|on|to|of|thru|through|in|into|by|whose|where|id|index|beginning|end|some|every|from|using|contains)\\b",
+					"name": "keyword.control.applescript"
+				},
+				{
+					"match": "\\b(display dialog|display alert|choose from list|choose file|choose folder|do shell script|delay|say)\\b",
+					"name": "support.function.applescript"
+				},
+				{
+					"match": "\\b(application|script|document|window|process|text|file|folder|disk|system info)\\b",
+					"name": "support.class.applescript"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b(true|false|yes|no|null|missing value)\\b",
+					"name": "constant.language.applescript"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "\\b(and|or|not|is|isn't|is not|equals|does not equal|doesn't equal|greater than|less than|comes before|comes after|begins with|ends with|contains|is in|is not in|isn't in)\\b",
+					"name": "keyword.operator.applescript"
+				},
+				{
+					"match": "\\b(div|mod|as|my|of)\\b",
+					"name": "keyword.operator.applescript"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "\\b([0-9]+(\\.([0-9])+)?)|([0-9]*\\.[0-9]+)\\b",
+					"name": "constant.numeric.applescript"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"match": "\\b([a-zA-Z][a-zA-Z0-9_]*)\\b",
+					"name": "variable.other.applescript"
+				}
+			]
+		}
+	}
+}
+  

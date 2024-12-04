@@ -1,0 +1,22 @@
+{
+  "name": "vscode-applescript",
+  "version": "1.0.0",
+  "description": "VSCode Extension for AppleScript (.scpt) support.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "generator-code": "^1.11.4",
+    "yo": "^5.0.0"
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "activationEvents": [
+    "onLanguage:applescript"
+  ]
+}
