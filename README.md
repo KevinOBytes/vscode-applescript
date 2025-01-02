@@ -10,7 +10,6 @@ Rich AppleScript language support for Visual Studio Code.
 ## Requirements
 
 - Visual Studio Code 1.91.0 or higher
-- macOS (as AppleScript is macOS-specific)
 
 ## Installation
 
