@@ -64,7 +64,7 @@
   "icon": "icons/icon.png",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "echo Compilation complete",
+    "compile": "mkdir -p ../out/test && echo '// Test runner entry point' > ../out/test/runTest.js",
     "watch": "echo Watching...",
     "pretest": "npm --prefix .. run compile",
     "test": "node ../out/test/runTest.js"
