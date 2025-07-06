@@ -12,4 +12,4 @@ repeat 1000 times
             end try
         end if
     end tell
-end repeat 
+end repeat
