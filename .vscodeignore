@@ -7,4 +7,4 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 .github/**
-images/demo.gif 
+images/demo.gif
