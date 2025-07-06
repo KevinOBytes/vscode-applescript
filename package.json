@@ -12,13 +12,33 @@
   "keywords": [],
   "author": "",
   "license": "AGPL-3.0",
+  "main": "./out/extension.js",
   "dependencies": {},
   "engines": {
     "vscode": "^1.0.0"
   },
   "activationEvents": [
-    "onLanguage:applescript"
+    "onLanguage:applescript",
+    "onCommand:applescript.runScript",
+    "onCommand:applescript.runSelection",
+    "onCommand:applescript.loadDictionary"
   ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "applescript.runScript",
+        "title": "Run AppleScript"
+      },
+      {
+        "command": "applescript.runSelection",
+        "title": "Run Selected AppleScript"
+      },
+      {
+        "command": "applescript.loadDictionary",
+        "title": "Load AppleScript Dictionary"
+      }
+    ]
+  },
   "devDependencies": {
     "generator-code": "^1.11.4",
     "yo": "^5.0.0",
