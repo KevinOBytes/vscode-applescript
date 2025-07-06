@@ -66,6 +66,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "echo Compilation complete",
     "watch": "echo Watching...",
-    "test": "echo No tests yet"
-  }
+    "pretest": "npm --prefix .. run compile",
+    "test": "node ../out/test/runTest.js"
+  },
+  "license": "AGPL-3.0"
 }

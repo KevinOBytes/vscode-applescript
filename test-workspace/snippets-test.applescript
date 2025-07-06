@@ -2,4 +2,4 @@
 -- Try typing these triggers:
 -- tell<Tab>
 -- if<Tab>
--- repeat<Tab> 
+-- repeat<Tab>

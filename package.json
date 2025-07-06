@@ -2,21 +2,33 @@
   "name": "vscode-applescript",
   "version": "1.0.0",
   "description": "VSCode Extension for AppleScript (.scpt) support.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "generator-code": "^1.11.4",
-    "yo": "^5.0.0"
-  },
+  "license": "AGPL-3.0",
+  "dependencies": {},
   "engines": {
     "vscode": "^1.0.0"
   },
   "activationEvents": [
     "onLanguage:applescript"
-  ]
+  ],
+  "devDependencies": {
+    "generator-code": "^1.11.4",
+    "yo": "^5.0.0",
+    "@types/node": "^20",
+    "@types/vscode": "^1.91.0",
+    "@vscode/test-electron": "^2.3.9",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.3",
+    "glob": "^7.2.3",
+    "@types/mocha": "^10.0.1",
+    "@types/glob": "^8.1.0"
+  }
 }
