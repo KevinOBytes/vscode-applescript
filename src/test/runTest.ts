@@ -9,7 +9,9 @@ async function main() {
     } catch (err) {
         console.error('Failed to run tests');
         if (err instanceof Error) {
-            console.error(err.message);
+            console.error(err.stack);
+        } else {
+            console.error(err);
         }
         process.exit(1);
     }
