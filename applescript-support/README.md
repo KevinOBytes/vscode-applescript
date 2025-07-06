@@ -21,6 +21,8 @@ You can install this extension through the VS Code Marketplace:
 3. Search for "AppleScript Support"
 4. Click Install
 
+To create a local VSIX package run `npx vsce package`.
+
 ## Known Issues
 
 Please report any issues on the [GitHub repository](https://github.com/KevinOBytes/vscode-applescript/issues).
