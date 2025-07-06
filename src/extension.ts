@@ -6,9 +6,9 @@ import * as os from 'os';
 
 let dictionary: vscode.CompletionItem[] = [];
 
-function loadSdefDictionary(sdefPath: string) {
+async function loadSdefDictionary(sdefPath: string) {
     try {
-        const xml = fs.readFileSync(sdefPath, 'utf8');
+        const xml = await fs.promises.readFile(sdefPath, 'utf8');
         const match = [...xml.matchAll(/<command name="([^"]+)"/g)];
         dictionary = match.map(m => new vscode.CompletionItem(m[1], vscode.CompletionItemKind.Function));
     } catch (err) {
