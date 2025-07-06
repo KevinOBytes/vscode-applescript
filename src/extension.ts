@@ -27,7 +27,6 @@ export function activate(context: vscode.ExtensionContext) {
         if (doc.isUntitled) {
             await doc.save();
         }
-        await doc.save();
         const command = `osascript "${doc.fileName}"`;
         const terminal = vscode.window.createTerminal('AppleScript');
         terminal.show(true);
