@@ -1,21 +1,51 @@
 {
   "name": "vscode-applescript",
+  "displayName": "AppleScript Support",
+  "description": "Rich AppleScript language support for Visual Studio Code with syntax highlighting, IntelliSense, and script execution",
   "version": "1.0.0",
-  "description": "VSCode Extension for AppleScript (.scpt) support.",
+  "publisher": "TKOResearch",
+  "author": {
+    "name": "Kevin O'Connor",
+    "email": "kevin@tkoresearch.com"
+  },
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KevinOBytes/vscode-applescript"
+  },
+  "bugs": {
+    "url": "https://github.com/KevinOBytes/vscode-applescript/issues"
+  },
+  "homepage": "https://github.com/KevinOBytes/vscode-applescript#readme",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "applescript",
+    "macos",
+    "automation",
+    "script",
+    "apple",
+    "osascript"
+  ],
+  "icon": "applescript-support/icons/icon.png",
+  "galleryBanner": {
+    "color": "#C5C5C5",
+    "theme": "light"
+  },
+  "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts --fix",
     "test": "node ./out/test/runTest.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "AGPL-3.0",
-  "main": "./out/extension.js",
-  "dependencies": {},
-  "engines": {
-    "vscode": "^1.0.0"
   },
   "activationEvents": [
     "onLanguage:applescript",
@@ -24,31 +54,106 @@
     "onCommand:applescript.loadDictionary"
   ],
   "contributes": {
+    "languages": [
+      {
+        "id": "applescript",
+        "aliases": [
+          "AppleScript",
+          "applescript"
+        ],
+        "extensions": [
+          ".scpt",
+          ".applescript",
+          ".scptd"
+        ],
+        "configuration": "./applescript-support/language-configuration.json",
+        "icon": {
+          "light": "./applescript-support/icons/applescript_icon.png",
+          "dark": "./applescript-support/icons/applescript_icon_dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "applescript",
+        "scopeName": "source.applescript",
+        "path": "./applescript-support/syntaxes/applescript.tmLanguage.json"
+      }
+    ],
     "commands": [
       {
         "command": "applescript.runScript",
-        "title": "Run AppleScript"
+        "title": "Run AppleScript",
+        "category": "AppleScript",
+        "icon": "$(play)"
       },
       {
         "command": "applescript.runSelection",
-        "title": "Run Selected AppleScript"
+        "title": "Run Selected AppleScript",
+        "category": "AppleScript",
+        "icon": "$(play-circle)"
       },
       {
         "command": "applescript.loadDictionary",
-        "title": "Load AppleScript Dictionary"
+        "title": "Load AppleScript Dictionary",
+        "category": "AppleScript",
+        "icon": "$(book)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == applescript",
+          "command": "applescript.runScript",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == applescript && editorHasSelection",
+          "command": "applescript.runSelection",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "resourceLangId == applescript",
+          "command": "applescript.runScript",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "applescript.runScript",
+        "key": "cmd+r",
+        "mac": "cmd+r",
+        "when": "resourceLangId == applescript"
+      },
+      {
+        "command": "applescript.runSelection",
+        "key": "cmd+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "resourceLangId == applescript && editorHasSelection"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "applescript",
+        "path": "./applescript-support/snippets/applescript.json"
       }
     ]
   },
+  "dependencies": {},
   "devDependencies": {
-    "generator-code": "^1.11.4",
-    "yo": "^5.0.0",
     "@types/node": "^20",
     "@types/vscode": "^1.91.0",
+    "@types/mocha": "^10.0.1",
+    "@types/glob": "^8.1.0",
     "@vscode/test-electron": "^2.3.9",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.50.0",
     "mocha": "^10.2.0",
     "typescript": "^5.3.3",
-    "glob": "^7.2.3",
-    "@types/mocha": "^10.0.1",
-    "@types/glob": "^8.1.0"
+    "glob": "^10.3.0"
   }
 }

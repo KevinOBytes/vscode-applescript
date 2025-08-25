@@ -1,4 +1,5 @@
 name: Publish Extension
+
 on:
   push:
     tags:
@@ -8,14 +9,28 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20.x
+          cache: 'npm'
       - run: npm ci
-      - name: Publish to Visual Studio Marketplace
-        run: |
-          npm install -g vsce
-          vsce publish -p ${{ secrets.VSCE_PAT }}
+      - name: Compile extension
+        run: npm run compile
+      - name: Run tests
+        run: npm test
         env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }} 
+          DISPLAY: ':99'
+      - name: Package extension
+        run: |
+          npm install -g @vscode/vsce
+          vsce package
+      - name: Publish to Visual Studio Marketplace
+        run: vsce publish -p ${{ secrets.VSCE_PAT }}
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix-package
+          path: "*.vsix" 
