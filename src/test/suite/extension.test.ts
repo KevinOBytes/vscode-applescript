@@ -16,6 +16,14 @@ suite('AppleScript Extension Test Suite', () => {
     });
 
     test('Extension commands are registered', async () => {
+        // Get the extension and ensure it's activated
+        const extension = vscode.extensions.getExtension('TKOResearch.vscode-applescript');
+        assert.ok(extension, 'Extension should be found');
+        
+        if (!extension.isActive) {
+            await extension.activate();
+        }
+        
         // Test that our commands are properly registered
         const commands = await vscode.commands.getCommands(true);
         
