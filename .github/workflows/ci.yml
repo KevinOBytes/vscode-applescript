@@ -23,10 +23,12 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run compile
+    - name: Setup virtual display
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
     - name: Run tests
-      run: npm test
-      env:
-        DISPLAY: ':99'
+      run: xvfb-run -a npm test
     
   lint:
     runs-on: ubuntu-latest
