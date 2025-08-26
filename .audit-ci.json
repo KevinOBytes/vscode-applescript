@@ -1,0 +1,9 @@
+{
+  "moderate": true,
+  "high": true,
+  "critical": true,
+  "allowlist": [],
+  "skip-dev": false,
+  "show-found": true,
+  "show-not-found": false
+}
