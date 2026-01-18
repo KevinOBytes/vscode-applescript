@@ -1,3 +1,15 @@
+# Source files
+src/**
+**/*.ts
+!out/**
+tsconfig.json
+.eslintrc.json
+
+# Development dependencies
+node_modules/
+**/.vscode-test/**
+
+# Development files
 .vscode/**
 .vscode-test/**
 .gitignore
@@ -8,3 +20,26 @@ vsc-extension-quickstart.md
 **/*.ts
 .github/**
 images/demo.gif
+
+# Documentation
+CONTRIBUTING.md
+applescript-support/vsc-extension-quickstart.md
+
+# Test files
+test/**
+test-workspace/**
+src/test/**
+
+# Build and packaging
+*.vsix
+.vscode-test/
+.vscode-test-web/
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+.DS_Store
+
+# Unnecessary files
+applescript-support/.vscode/
+applescript-support/.vscodeignore
