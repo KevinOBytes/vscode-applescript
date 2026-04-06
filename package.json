@@ -155,5 +155,8 @@
     "mocha": "^10.2.0",
     "typescript": "^5.3.3",
     "glob": "^10.3.0"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.4"
   }
 }
